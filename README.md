@@ -100,7 +100,7 @@ server {
 }
 ```
 
-Save and exit the file with `Ctl+x -> Y -> Enter`
+Save and exit the file with `Ctrl + x -> Y -> Enter`
 
 Next, we need to activate this new site by creating a symlink to new site configuration
 ```
