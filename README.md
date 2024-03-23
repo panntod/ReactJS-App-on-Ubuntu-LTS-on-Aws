@@ -24,6 +24,10 @@ and next, install node by running:
 ```
 curl -sL https://deb.nodesource.com/setup_15.x | sudo -E bash -
 ```
+and next, update source bash, by running:
+```
+source .bashrc
+```
 Test the NodeJs version and npm version, by running :
 ```
 node -v
