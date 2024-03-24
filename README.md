@@ -86,14 +86,14 @@ sudo nano <Name-App> (using dash | underscore | camel case)
 The last command will open a text file to be edited. Paste the following code into it while replacing xxx.xx.. with your IP address, add domain name with space, use any one of two or both.
 ```
 server {
-    listen 80;            #if you have an application run in port 80, you can change it
-    listen [::]:80;       #if you change the top one, you need to change this    
+    listen 80;            //if you have an application run in port 80, you can change it
+    listen [::]:80;       //if you change the top one, you need to change this    
     
     server_name xxx.xxx.xxx.xxx;
     access_log /var/log/nginx/reat-tutorial.com.access.log;                
     error_log /var/log/nginx/reat-tutorial.com.error.log;       
     location / {
-            proxy_pass http://127.0.0.1:3000;        #you just need to change it
+            proxy_pass http://127.0.0.1:3000;        //you just need to change it
             client_max_body_size 50m;
             client_body_buffer_size 16k;
             proxy_http_version 1.1;                                              
@@ -114,6 +114,15 @@ sudo ln -s /etc/nginx/sites-available/<Name-App> /etc/nginx/sites-enabled/
 Make sure that your nginx configuration syntax is error free
 ```
 sudo nginx -t
+```
+If an error occurs when you run this code make sure all your code is correct, you can see your code by running:
+```
+cd  /etc/nginx/sites-enabled/
+```
+Next, see if the file name is correct or not, by running `ls`
+if it does not match then you can delete it, and repeat from step 6. delete file by running:
+```
+rm "Your App"
 ```
 Restart Nginx
 ```
