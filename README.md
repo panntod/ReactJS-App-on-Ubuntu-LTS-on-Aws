@@ -29,6 +29,10 @@ and next, update source bash, by running:
 ```
 source .bashrc
 ```
+and next, install node using nvm, by running: 
+```
+nvm install 20
+```
 Test the NodeJs version and npm version, by running :
 ```
 node -v
