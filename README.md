@@ -22,7 +22,8 @@ sudo apt-get install curl
 ```
 and next, install node by running:
 ```
-curl -sL https://deb.nodesource.com/setup_15.x | sudo -E bash -
+# installs NVM (Node Version Manager)
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 ```
 and next, update source bash, by running:
 ```
@@ -32,7 +33,7 @@ Test the NodeJs version and npm version, by running :
 ```
 node -v
 #AND  
-npm --v
+npm --version
 ```
 
 4. Get your source code, here I use [github](github.com), and I will take the code that I have uploaded there using git, by running:
@@ -85,14 +86,14 @@ sudo nano <Name-App> (using dash | underscore | camel case)
 The last command will open a text file to be edited. Paste the following code into it while replacing xxx.xx.. with your IP address, add domain name with space, use any one of two or both.
 ```
 server {
-    listen 80;
-    listen [::]:80;
+    listen 80;            #if you have an application run in port 80, you can change it
+    listen [::]:80;       #if you change the top one, you need to change this    
     
-    server_name xxx.xxx.xxx.xxx yourdomain.com;
+    server_name xxx.xxx.xxx.xxx;
     access_log /var/log/nginx/reat-tutorial.com.access.log;                
     error_log /var/log/nginx/reat-tutorial.com.error.log;       
     location / {
-            proxy_pass http://127.0.0.1:3000;
+            proxy_pass http://127.0.0.1:3000;        #you just need to change it
             client_max_body_size 50m;
             client_body_buffer_size 16k;
             proxy_http_version 1.1;                                              
@@ -108,7 +109,7 @@ Save and exit the file with `Ctrl + x -> Y -> Enter`
 
 Next, we need to activate this new site by creating a symlink to new site configuration
 ```
-sudo ln -s /etc/nginx/sites-available/react-tutorial /etc/nginx/sites-enabled/
+sudo ln -s /etc/nginx/sites-available/<Name-App> /etc/nginx/sites-enabled/
 ```
 Make sure that your nginx configuration syntax is error free
 ```
