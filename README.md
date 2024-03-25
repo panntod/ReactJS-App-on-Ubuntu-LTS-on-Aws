@@ -119,6 +119,14 @@ Make sure that your nginx configuration syntax is error free
 ```
 sudo nginx -t
 ```
+Restart Nginx
+```
+sudo systemctl restart nginx
+```
+You may want to restart your app also:
+```
+pm2 restart "Your App"
+```
 If an error occurs when you run this code make sure all your code is correct, you can see your code by running:
 ```
 cd  /etc/nginx/sites-enabled/
@@ -127,13 +135,5 @@ Next, see if the file name is correct or not, by running `ls`
 if it does not match then you can delete it, and repeat from step 6. delete file by running:
 ```
 rm "Your App"
-```
-Restart Nginx
-```
-sudo systemctl restart nginx
-```
-You may want to restart your app also:
-```
-pm2 restart "Your App"
 ```
 If everything goes well you should see your app running at the root domain or your Amazon EC2 instance's public IP address.
